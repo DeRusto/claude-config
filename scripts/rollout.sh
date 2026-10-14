@@ -5,7 +5,7 @@
 #
 #   ./scripts/rollout.sh                 # dry run: lists what it would do
 #   APPLY=1 ./scripts/rollout.sh         # actually commit the file
-#   APPLY=1 ANTHROPIC_API_KEY=... ./scripts/rollout.sh   # also set the secret
+#   APPLY=1 CLAUDE_CODE_OAUTH_TOKEN=... ./scripts/rollout.sh   # also set the secret
 set -euo pipefail
 
 OWNER=derusto
@@ -32,7 +32,7 @@ while read -r name; do
     -f message="Add Claude workflow" -f content="$CONTENT" >/dev/null
   echo "added  $repo"
 
-  if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
-    printf '%s' "$ANTHROPIC_API_KEY" | gh secret set ANTHROPIC_API_KEY --repo "$repo"
+  if [ -n "${CLAUDE_CODE_OAUTH_TOKEN:-}" ]; then
+    printf '%s' "$CLAUDE_CODE_OAUTH_TOKEN" | gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo "$repo"
   fi
 done
