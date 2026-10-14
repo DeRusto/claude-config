@@ -1,0 +1,11 @@
+{
+  "name": "derusto-claude",
+  "owner": { "name": "derusto" },
+  "plugins": [
+    {
+      "name": "ponytail",
+      "source": "./plugins/ponytail",
+      "description": "Lazy senior dev mode: smallest change that fully solves a coding task."
+    }
+  ]
+}
